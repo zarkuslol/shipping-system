@@ -1,4 +1,4 @@
-dpackage strategy;
+package strategy;
 
 import models.Order;
 import org.junit.jupiter.api.BeforeEach;
