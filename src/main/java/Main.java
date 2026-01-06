@@ -1,6 +1,7 @@
 import factory.ShippingStrategyFactory;
 import models.Order;
 import services.ShippingService;
+import strategy.ShippingType;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -14,14 +15,13 @@ public class Main {
         Double length = 8.0;
         BigDecimal price = BigDecimal.valueOf(120);
         LocalDateTime dateTime = LocalDateTime.now();
-        String shippingMethod = "store"; // Pode ser "economy", "fast" ou "store"
+        ShippingType shippingMethod = ShippingType.ECONOMY_SAVER;
 
         // Simulando a chamada do serviço de frete com a estratégia escolhida
         ShippingService shippingService = new ShippingService(
                 ShippingStrategyFactory.getStrategy(shippingMethod)
         );
 
-        // Criação do pedido
         Order order = new Order(
                 weight,
                 height,
